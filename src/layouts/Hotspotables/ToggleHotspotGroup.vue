@@ -9,7 +9,7 @@
 <script>
 import Hotspotable from "mixins/Hotspotable"
 export default {
-    name:"iv-hotspot",
+    name:"iv-toggle-hotspot",
     mixins:[Hotspotable],
     props:{
         defaultShowHotspot:{
@@ -22,49 +22,41 @@ export default {
             showHotspot:this.defaultShowHotspot,
         }
     },
-    methods:{
-        positionalClass(base){
-            return [`${base}-${this.position}`]
-        }
-    },
     computed:{
-        paneText(){
-            return (this.showHotspot)? "⬆️":"⬇️";
-        },
         buttonMove(){
             switch(this.position){
-                case"left":
+                case "left":
                     return {'left':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scaleX(-1)`:`scaleX(1)` 
                     }
-                case"right":
+                case "right":
                     return {'right':  this.showHotspot ? "calc(100% - 20px)": 0,
                             "transform": this.showHotspot ? `scaleX(-1)`:`scaleX(1)`
                     }
-                case"top":
+                case "top":
                     return {'top':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scaleY(-1)`:`scaleY(1)`
                     }
-                case"bottom":
+                case "bottom":
                     return {'bottom':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scaleY(-1)`:`scaleY(1)`
                     }
-                case"topleft":
+                case "topleft":
                     return {'left': this.showHotspot ? "calc(100% - 20px)" : 0,
                             'top': this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scale(-1, -1)`:`scale(1, 1)` ,
                            }
-                case"topright":
+                case "topright":
                     return {'right':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             'top':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scale(-1, -1)`:`scale(1, 1)` 
                            }
-                case"bottomleft":
+                case "bottomleft":
                     return {'left':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             'bottom':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scale(-1, -1)`:`scale(1, 1)` 
                            }
-                case"bottomright":
+                case "bottomright":
                     return {'right':  this.showHotspot ?"calc(100% - 20px)" : 0,
                             'bottom':  this.showHotspot ? "calc(100% - 20px)" : 0,
                             "transform": this.showHotspot ? `scale(-1, -1)`:`scale(1, 1)` 

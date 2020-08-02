@@ -49,29 +49,23 @@ export default {
         },
     },
     methods:{
-        prevGuidance(){
+        guidanceAction(event){
             document.getElementById(this.guidanceInput.highlightDiv).style.zIndex = 0;
             document.getElementById(this.guidanceInput.highlightDiv).style.pointerEvents = "auto";
             guidanceBus.$emit("hide-component", this.guidanceInput.highlightDiv);
-            guidanceBus.$emit("prev-guidance", this._uid);
+            guidanceBus.$emit(event, this._uid);
+        },
+        prevGuidance(){
+            this.guidanceAction('prev-guidance')
         },
         nextGuidance(){
-            document.getElementById(this.guidanceInput.highlightDiv).style.zIndex = 0;
-            document.getElementById(this.guidanceInput.highlightDiv).style.pointerEvents = "auto";
-            guidanceBus.$emit("hide-component", this.guidanceInput.highlightDiv);
-            guidanceBus.$emit("next-guidance", this._uid);
+            this.guidanceAction('next-guidance')
         },
         closeWindow(){
-            document.getElementById(this.guidanceInput.highlightDiv).style.zIndex = 0;
-            document.getElementById(this.guidanceInput.highlightDiv).style.pointerEvents = "auto";
-            guidanceBus.$emit("hide-component", this.guidanceInput.highlightDiv);
-            guidanceBus.$emit("close-window", this._uid);
+            this.guidanceAction('close-window')
         },
         goHome(){
-            document.getElementById(this.guidanceInput.highlightDiv).style.zIndex = 0;
-            document.getElementById(this.guidanceInput.highlightDiv).style.pointerEvents = "auto";
-            guidanceBus.$emit("hide-component", this.guidanceInput.highlightDiv);
-            guidanceBus.$emit("go-home", this._uid);
+            this.guidanceAction('go-home')
         }
     },
     mounted(){

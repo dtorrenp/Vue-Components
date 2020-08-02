@@ -6,5 +6,10 @@ export default{
             required:true,
             validator: value => POSITIONS.indexOf(value) > -1
         }
-    }
+    },
+    methods:{
+        positionalClass(base){
+            return [`${base}-${this.position}`]
+        }
+    },
 }

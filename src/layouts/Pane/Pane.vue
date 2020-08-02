@@ -98,9 +98,6 @@ export default {
         }
     },
     methods:{
-        positionalClass(base){
-            return [`${base}-${this.position}`]
-        },
         mouseDown(e){
             this.resizer.adjusting=true;
             this.resizer.initPageX=e.pageX;
